@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
+import mongoose from 'mongoose';
 import { authOptions } from '@/lib/auth';
 import connectDB from '@/lib/mongodb';
 import Client from '@/models/Client';
@@ -47,7 +48,7 @@ export async function POST(
         // Create visit history entry
         const visitEntry = {
             visitDate: new Date(),
-            visitedBy: session.user.id,
+            visitedBy: new mongoose.Types.ObjectId(session.user.id),
             status: status || 'visited',
             feedback,
             issues,
