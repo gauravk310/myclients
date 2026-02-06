@@ -106,7 +106,7 @@ export default function NewClientPage() {
             </div>
 
             {/* Form */}
-            <div className="card" style={{ maxWidth: 600 }}>
+            <div className="card">
                 <form onSubmit={handleSubmit}>
                     {/* Client Name */}
                     <div className="form-group">
